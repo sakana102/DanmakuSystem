@@ -51,7 +51,6 @@ export class ItemAnimator {
   }
 
   private async animateFlow(item: Item): Promise<void> {
-    console.log(item);
     const animation = item.element.animate(
       [
         { transform: `translate3d(0, 0, 0)` },

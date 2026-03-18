@@ -1,12 +1,12 @@
 import { Platform } from "@/utils/types/platform";
-import { CanvasManager } from "../core/canvas-manager";
 import { Settings } from "@/utils/types/settings";
-import { LaneAllocator } from "../core/lane-allocator";
-import { LaneType } from "../types/types";
-import { ItemAnimator } from "../core/item-animator";
-import { ItemParser } from "../core/item-parser";
-import { StorageManager } from "../utils/storage-manager";
-import { applyDecorationCommands } from "../core/decoration-commands";
+import { LaneType } from "@/entrypoints/content/types/lane";
+import { CanvasManager } from "@/entrypoints/content/core/canvas-manager";
+import { ItemAnimator } from "@/entrypoints/content/core/item-animator";
+import { ItemParser } from "@/entrypoints/content/core/item-parser";
+import { LaneAllocator } from "@/entrypoints/content/core/lane-allocator";
+import { StorageManager } from "@/entrypoints/content/utils/storage-manager";
+import { applyDecorationCommands } from "@/entrypoints/content/core/decoration-commands";
 
 export class DanmakuSystem {
   private platform: Platform;
@@ -81,7 +81,6 @@ export class DanmakuSystem {
     }
 
     this.laneAllocators[item.type].add(item.type, item);
-    console.log(this.laneAllocators);
     this.animate(item.type);
   }
 

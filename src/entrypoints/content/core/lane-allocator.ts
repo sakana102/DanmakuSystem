@@ -2,7 +2,7 @@ import { Platform } from "@/utils/types/platform";
 import { Settings } from "@/utils/types/settings";
 import { Item } from "@/entrypoints/content/types/item";
 import { Lane, Lanes, LaneType } from "@/entrypoints/content/types/lane";
-import { CanvasManager } from "./canvas-manager";
+import { CanvasManager } from "@/entrypoints/content/core/canvas-manager";
 
 export class LaneAllocator {
   private platform: Platform;
@@ -26,7 +26,6 @@ export class LaneAllocator {
   public reset() {
     const displayRange = this.settings.displayRange[this.platform];
     const laneLength = Math.floor(this.canvas.getHeight() / this.canvas.measureItemHeight()) * (displayRange / 100);
-    console.log(displayRange, laneLength);
     this.lanes = Array.from({ length: laneLength }, () => []);
   }
 

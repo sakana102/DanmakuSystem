@@ -1,7 +1,7 @@
 import { Platform } from "@/utils/types/platform";
 import { Item } from "@/entrypoints/content/types/item";
 import { SELECTORS } from "@/entrypoints/content/data/selectors";
-import { CanvasManager } from "./canvas-manager";
+import { CanvasManager } from "@/entrypoints/content/core/canvas-manager";
 
 export class ItemParser {
   private platform: Platform;

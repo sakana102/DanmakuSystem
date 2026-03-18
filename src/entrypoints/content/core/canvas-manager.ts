@@ -18,6 +18,14 @@ export class CanvasManager {
     this.replaceChildren();
   }
 
+  public replaceChildren(): void {
+    this.canvas.replaceChildren();
+  }
+
+  public cancelAllAnimations(): void {
+    this.canvas.getAnimations().forEach((animation) => animation.cancel());
+  }
+
   public getElement(): HTMLElement {
     return this.canvas;
   }
@@ -53,13 +61,5 @@ export class CanvasManager {
     const canvasRect = this.canvas.getBoundingClientRect();
     const itemRect = element.getBoundingClientRect();
     return itemRect.left - canvasRect.left;
-  }
-
-  public replaceChildren(): void {
-    this.canvas.replaceChildren();
-  }
-
-  public cancelAllAnimations(): void {
-    this.canvas.getAnimations().forEach((animation) => animation.cancel());
   }
 }
