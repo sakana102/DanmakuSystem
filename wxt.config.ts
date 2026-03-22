@@ -8,9 +8,10 @@ export default defineConfig({
   manifest: {
     name: "DanmakuSystem",
     description: "DESCRIPTION",
+    default_locale: "ja",
     permissions: ["storage", "fontSettings"],
   },
-  modules: ["@wxt-dev/module-react"],
+  modules: ["@wxt-dev/module-react", "@wxt-dev/i18n/module"],
   vite: () =>
     ({
       plugins: [tailwindcss()],
