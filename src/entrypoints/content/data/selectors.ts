@@ -2,7 +2,7 @@ import { Selectors } from "@/entrypoints/content/types/selectors";
 
 export const SELECTORS: Selectors = {
   video: {
-    canvas: {
+    player: {
       youtube: `#movie_player`,
       twitch: `[data-a-target="video-player"] > .video-player__container`,
       kick: `#injected-embedded-channel-player-video > div`,

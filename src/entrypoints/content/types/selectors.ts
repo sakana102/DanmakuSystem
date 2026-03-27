@@ -3,7 +3,7 @@ import { createPlatformObject } from "@/utils/types/platform";
 
 export const SelectorsSchema = z.object({
   video: z.object({
-    canvas: createPlatformObject(z.string()),
+    player: createPlatformObject(z.string()),
   }),
 
   chat: z.object({
