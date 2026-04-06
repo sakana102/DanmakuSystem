@@ -6,16 +6,10 @@ import { CanvasManager } from "@/entrypoints/content/core/canvas-manager";
 export class ItemParser {
   private platform: Platform;
   private canvas: CanvasManager;
-  private itemHeight: number;
 
   constructor(platform: Platform, canvas: CanvasManager) {
     this.platform = platform;
     this.canvas = canvas;
-    this.itemHeight = this.canvas.measureItemHeight();
-  }
-
-  public update() {
-    this.itemHeight = this.canvas.measureItemHeight();
   }
 
   public async parse(material: HTMLElement): Promise<Item> {
@@ -36,10 +30,10 @@ export class ItemParser {
     const nodes = await Promise.all(Array.from(contents.childNodes).map((node) => this.convertNode(node)));
     nodes.forEach((node) => node && item.element.append(node));
 
-    item.element.style.height = `${this.itemHeight}px`;
+    item.element.style.height = `${this.canvas.measureItemHeight()}px`;
     item.element.className = "DanmakuSystem__item";
     item.width = this.canvas.measureItemWidth(item.element);
-    item.height = this.itemHeight;
+    item.height = this.canvas.measureItemHeight();
 
     return item;
   }
