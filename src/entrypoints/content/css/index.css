@@ -1,14 +1,14 @@
 :root {
-  --drmaggot__danmaku-font: "Arial";
-  --drmaggot__danmaku-fontSize: 28px;
-  --drmaggot__danmaku-opacity: 50%;
+  --DanmakuSystem__fontFamily: "Arial";
+  --DanmakuSystem__fontSize: 28px;
+  --DanmakuSystem__fontOpacity: 50%;
 }
 
 #DanmakuSystem__canvas {
   backface-visibility: hidden;
-  font-family: var(--drmaggot__danmaku-font), "Arial" !important;
-  font-size: var(--drmaggot__danmaku-fontSize) !important;
-  opacity: var(--drmaggot__danmaku-opacity) !important;
+  font-family: var(--DanmakuSystem__fontFamily), "Arial" !important;
+  font-size: var(--DanmakuSystem__fontSize) !important;
+  opacity: var(--DanmakuSystem__fontOpacity) !important;
   pointer-events: none;
   position: absolute;
   top: 0;
