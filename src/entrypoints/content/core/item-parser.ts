@@ -1,4 +1,5 @@
 import { Platform } from "@/utils/types/platform";
+import { Settings } from "@/utils/types/settings";
 import { Item } from "@/entrypoints/content/types/item";
 import { SELECTORS } from "@/entrypoints/content/data/selectors";
 import { CanvasManager } from "@/entrypoints/content/core/canvas-manager";
@@ -6,10 +7,12 @@ import { CanvasManager } from "@/entrypoints/content/core/canvas-manager";
 export class ItemParser {
   private platform: Platform;
   private canvas: CanvasManager;
+  private settings: Settings;
 
-  constructor(platform: Platform, canvas: CanvasManager) {
+  constructor(platform: Platform, canvas: CanvasManager, settings: Settings) {
     this.platform = platform;
     this.canvas = canvas;
+    this.settings = settings;
   }
 
   public async parse(material: HTMLElement): Promise<Item> {
@@ -67,10 +70,10 @@ export class ItemParser {
 
   private async createImage(image: HTMLImageElement): Promise<HTMLImageElement> {
     const clone = await this.cloneImage(image);
-    const itemHeight = this.canvas.measureItemHeight();
+    const height = this.settings.fontSize[this.platform];
     const ratio = clone.naturalWidth / clone.naturalHeight;
-    clone.style.width = `${itemHeight * ratio - 5}px`;
-    clone.style.height = `${itemHeight - 5}px`;
+    clone.style.width = `${height * ratio}px`;
+    clone.style.height = `${height}px`;
     return clone;
   }
 
