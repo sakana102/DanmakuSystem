@@ -25,19 +25,22 @@ export class DanmakuSystem {
     this.settings = settings;
     this.eventDisposers = [];
 
-    this.itemParser = new ItemParser(this.platform, this.canvas);
+    this.itemParser = new ItemParser(this.platform, this.canvas, this.settings);
     this.itemAnimator = new ItemAnimator(this.platform, this.canvas, this.settings);
     this.laneAllocators = {
       flow: new LaneAllocator(this.platform, this.canvas, this.settings),
       up: new LaneAllocator(this.platform, this.canvas, this.settings),
       down: new LaneAllocator(this.platform, this.canvas, this.settings),
     };
+
     this.update(canvas);
   }
 
   public async update(canvas: HTMLElement) {
     this.canvas.update(canvas);
     this.settings = await this.storage.get();
+    this.updateCSSProperty(document);
+    this.updateCSSProperty(window.parent.document);
 
     this.itemAnimator.update(this.settings);
     Object.values(this.laneAllocators).forEach((laneAllocator) => {
@@ -45,8 +48,17 @@ export class DanmakuSystem {
     });
   }
 
+  private updateCSSProperty(document: Document) {
+    const element = document.documentElement;
+    element.style.setProperty("--DanmakuSystem__fontFamily", this.settings.fontFamily[this.platform]);
+    element.style.setProperty("--DanmakuSystem__fontSize", `${this.settings.fontSize[this.platform]}px`);
+    element.style.setProperty("--DanmakuSystem__fontOpacity", `${this.settings.fontOpacity[this.platform]}%`);
+  }
+
   public start() {
-    const unwatch = this.storage.watch(() => this.update(this.canvas.getElement()));
+    const unwatch = this.storage.watch(() => {
+      this.update(this.canvas.getElement());
+    });
     this.eventDisposers.push(unwatch);
 
     const resizeObserver = new ResizeObserver(() => {
