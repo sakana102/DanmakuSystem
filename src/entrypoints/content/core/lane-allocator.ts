@@ -45,12 +45,6 @@ export class LaneAllocator {
   }
 
   private addFlow(item: Item) {
-    const emptyLane = this.findEmptyLane();
-    if (emptyLane) {
-      emptyLane.push(item);
-      return;
-    }
-
     const nonCollidingLane = this.findNonCollidingLane(item);
     if (nonCollidingLane) {
       nonCollidingLane.push(item);
@@ -91,9 +85,12 @@ export class LaneAllocator {
     for (let i = 0; i < this.lanes.length; i++) {
       const lane = this.lanes[i];
       const lastItem = lane[lane.length - 1];
-      const willNotCollide = this.willNotCollide(item, lastItem);
+      if (lastItem === undefined) {
+        return lane;
+      }
 
-      if (lastItem === undefined || willNotCollide === true) {
+      const willNotCollide = this.willNotCollide(item, lastItem);
+      if (willNotCollide === true) {
         return lane;
       }
     }
