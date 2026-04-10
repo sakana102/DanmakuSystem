@@ -103,9 +103,10 @@ export class LaneAllocator {
 
     for (let i = 1; i < this.lanes.length; i++) {
       const currentLastItem = this.lanes[i][this.lanes[i].length - 1];
-      const minLastItem = this.lanes[index][this.lanes[index].length - 1];
+      if (!currentLastItem) return this.lanes[i];
 
-      if (!currentLastItem || !minLastItem) continue;
+      const minLastItem = this.lanes[index][this.lanes[index].length - 1];
+      if (!minLastItem) return this.lanes[index];
 
       const currentPositionX = this.canvas.getItemPositionX(currentLastItem.element) + currentLastItem.width;
       const minPositionX = this.canvas.getItemPositionX(minLastItem.element) + minLastItem.width;
