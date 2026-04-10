@@ -1,0 +1,34 @@
+settings:
+  platform:
+    title: プラットフォーム
+    info: プラットフォームごとに設定できます。
+  enable:
+    title: 弾幕
+    info: 弾幕の切り替えを設定できます。
+  decoration:
+    title: 装飾
+    info: コマンドによる装飾を行うかどうか設定できます。
+  font:
+    title: フォント
+    info: 弾幕のフォントを設定できます。
+  fontSize:
+    title: フォントサイズ
+    info: 弾幕のフォントサイズを設定できます。
+  fontOpacity:
+    title: 不透明度
+    info: 弾幕の不透明度を設定できます。0と設定すると、完全に透明となります。
+  displayTime:
+    title: 表示時間
+    info: 弾幕の表示時間を設定できます。10と設定すると、10秒かけて弾幕が流れます。
+  displayLimit:
+    title: 表示上限
+    info: 画面に表示する弾幕の上限数を設定できます。0と設定すると、上限はなくなります。
+  displayRange:
+    title: 表示範囲
+    info: 弾幕を表示する範囲を設定できます。50と設定すると、画面半分の範囲に弾幕が流れます。
+  donate:
+    title: 支援
+    info: 支援していただけると、開発の励みになります。
+  github:
+    title: GitHub
+    info: ソースコードを確認できます。
