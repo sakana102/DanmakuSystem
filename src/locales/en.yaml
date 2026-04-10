@@ -1,0 +1,34 @@
+settings:
+  platform:
+    title: Platform
+    info: Configure settings for each platform.
+  enable:
+    title: Danmaku
+    info: Toggle danmaku on or off.
+  decoration:
+    title: Decoration
+    info: Enable or disable command-based decorations.
+  font:
+    title: Font
+    info: Set the font for danmaku.
+  fontSize:
+    title: Font Size
+    info: Set the font size for danmaku.
+  fontOpacity:
+    title: Opacity
+    info: Set the opacity of danmaku. If set to 0, it becomes completely transparent.
+  displayTime:
+    title: Display Time
+    info: Set how long danmaku is displayed. If set to 10, it will scroll across the screen over 10 seconds.
+  displayLimit:
+    title: Display Limit
+    info: Set the maximum number of danmaku displayed on screen. If set to 0, there is no limit.
+  displayRange:
+    title: Display Range
+    info: Set the area where danmaku is displayed. If set to 50, danmaku will appear in half of the screen.
+  donate:
+    title: Support
+    info: Your support encourages development.
+  github:
+    title: GitHub
+    info: View the source code.
