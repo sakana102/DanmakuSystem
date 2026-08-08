@@ -42,6 +42,7 @@ export class DanmakuSystem {
     this.updateCSSProperty(document);
     this.updateCSSProperty(window.parent.document);
 
+    this.itemParser.update(this.settings);
     this.itemAnimator.update(this.settings);
     Object.values(this.laneAllocators).forEach((laneAllocator) => {
       laneAllocator.update(this.settings);

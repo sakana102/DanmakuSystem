@@ -15,6 +15,10 @@ export class ItemParser {
     this.settings = settings;
   }
 
+  public update(settings: Settings) {
+    this.settings = settings;
+  }
+
   public async parse(material: HTMLElement): Promise<Item> {
     const display = window.getComputedStyle(material).display;
     const contents = material.querySelector<HTMLElement>(SELECTORS.chat.contents[this.platform]);
