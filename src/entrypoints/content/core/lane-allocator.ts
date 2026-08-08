@@ -29,12 +29,16 @@ export class LaneAllocator {
     this.lanes = Array.from({ length: laneLength }, () => []);
   }
 
-  public add(type: LaneType, item: Item) {
+  public add(type: LaneType, item: Item): boolean {
+    if (this.lanes.length === 0) return false;
+
     if (type === "flow") {
       this.addFlow(item);
     } else {
       this.addFixed(item);
     }
+
+    return true;
   }
 
   public remove(item: Item, index: number) {

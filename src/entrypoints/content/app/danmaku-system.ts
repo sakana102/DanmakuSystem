@@ -92,7 +92,9 @@ export class DanmakuSystem {
       applyDecorationCommands(item);
     }
 
-    this.laneAllocators[item.type].add(item.type, item);
+    const added = this.laneAllocators[item.type].add(item.type, item);
+    if (!added) return;
+
     this.animate(item.type);
   }
 
